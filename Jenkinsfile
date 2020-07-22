@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'docker build -t petclinic .'
             }
         }
         stage('Test') {
@@ -19,8 +19,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "sudo mv target/spring*.jar /home/vagrant/data/petclinic.jar"
-                sh "sudo systemctl restart petclinic"
+
             }
         }
     }
