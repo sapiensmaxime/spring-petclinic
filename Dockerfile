@@ -8,5 +8,5 @@ EXPOSE 8081
 
 COPY . ./
 RUN ./mvnw package
-COPY data/*.jar ./petclinic.jar
+COPY target/spring*.jar ./petclinic.jar
 CMD ["java", "-jar", "/data/petclinic.jar", "--server.port=8081"]
