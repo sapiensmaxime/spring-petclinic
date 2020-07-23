@@ -23,4 +23,4 @@ WORKDIR /data
 COPY --from=development /data/target/*.jar ./petclinic.jar
 
 # Let's run the app!
-CMD ["java", "-jar", "/data/petclinic.jar", "--server.port=8081"]
+CMD ["java", "-jar", "/data/petclinic.jar", "--server.port=8081", "--spring.profiles.active=mysql"]
