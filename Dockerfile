@@ -1,11 +1,11 @@
-FROM openjdk:11.0.5-jdk-slim as development
-WORKDIR /spring-petclinic
-COPY .mvn /.mvn
-COPY pom.xml /pom.xml
-COPY mvnw /mvnw
-RUN chmod +x /mvnw
+FROM openjdk:11.0.5-jdk-slim as BUILDER
+WORKDIR /petclinic
+COPY .mvn /petclinic/.mvn
+COPY pom.xml /petclinic/pom.xml
+COPY mvnw /petclinic/mvnw
+RUN chmod +x mvnw
 RUN ./mvnw dependency:go-offline
-COPY src /src
+COPY src /petclinic/src
 RUN ./mvnw package -DskipTests
 
 # --------------------------------
