@@ -3,7 +3,7 @@ WORKDIR /spring-petclinic
 COPY .mvn /.mvn
 COPY pom.xml /pom.xml
 COPY mvnw /mvnw
-RUN chmod +x mvnw
+RUN chmod +x /mvnw
 RUN ./mvnw dependency:go-offline
 COPY src /src
 RUN ./mvnw package -DskipTests
