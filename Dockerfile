@@ -11,13 +11,10 @@ RUN ./mvnw package -DskipTests
 # --------------------------------
 
 # Production build
-FROM openjdk:8-jdk-alpine AS production
+FROM openjdk:11-jre-slim
 
 # Expose container port
 EXPOSE 8081
-
-# Create app directory into Docker container
-WORKDIR /petclinic
 
 # Bundle app source
 COPY --from=BUILDER /target/*.jar ./petclinic.jar
