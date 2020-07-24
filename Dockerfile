@@ -17,10 +17,10 @@ FROM openjdk:8-jdk-alpine AS production
 EXPOSE 8081
 
 # Create app directory into Docker container
-WORKDIR /data
+WORKDIR /petclinic
 
 # Bundle app source
-COPY --from=BUILDER /data/target/*.jar ./petclinic.jar
+COPY --from=BUILDER /target/*.jar ./petclinic.jar
 
 # Let's run the app!
 CMD ["java", "-jar", "/data/petclinic.jar", "--server.port=8081", "--spring.profiles.active=mysql"]
