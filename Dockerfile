@@ -20,4 +20,4 @@ EXPOSE 8081
 COPY --from=BUILDER petclinic/target/*.jar ./petclinic.jar
 
 # Let's run the app!
-CMD ["java", "-jar", "/data/petclinic.jar", "--server.port=8081", "--spring.profiles.active=mysql"]
+CMD ["java", "-jar", "/petclinic.jar", "--server.port=8081", "--spring.profiles.active=mysql"]
