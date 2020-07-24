@@ -17,7 +17,7 @@ FROM openjdk:11-jre-slim
 EXPOSE 8081
 
 # Bundle app source
-COPY --from=BUILDER /target/*.jar ./petclinic.jar
+COPY --from=BUILDER petclinic/target/*.jar ./petclinic.jar
 
 # Let's run the app!
 CMD ["java", "-jar", "/data/petclinic.jar", "--server.port=8081", "--spring.profiles.active=mysql"]
